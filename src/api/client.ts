@@ -2,7 +2,7 @@ import axios, {AxiosError} from 'axios'
 import type {ErrorDto} from './types'
 
 export const TOKEN_KEY = 'task_tracker_token'
-const baseURL = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080').replace(/\/$/, '')
+const baseURL = import.meta.env.VITE_API_BASE_URL ?? ''
 
 export const api = axios.create({
     baseURL,
