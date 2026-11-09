@@ -1,0 +1,13 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Адрес виден браузеру пользователя, поэтому localhost здесь — хост Windows,
+        # а не имя backend-контейнера.
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8080}
+    container_name: task-tracker-frontend
+    ports:
+      - "5173:80"
+    restart: unless-stopped
